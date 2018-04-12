@@ -8,7 +8,7 @@ use-site-title: true
 <div class="posts-list">
   {% for post in paginator.posts %}
   {% for tags in post.tags %}
-  {% if tags='music'|tags='musings' %}
+  {% if tags == 'music' or tags == 'musings' %}
 
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
