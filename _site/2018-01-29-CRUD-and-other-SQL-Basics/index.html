@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>CURD and other SQL basics</title>
+
+  <meta name="author" content="Venkat Yandapalli" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Quantum Of Cosmos - Testimony of my ventures and musings" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="CURD and other SQL basics" />
+  
+
+   
+  <meta property="og:description" content="CRUD: The acronym crud stands for create, read, update, and delete. It represents four basic operations that are performed on a database entries. These operations are applicable to both relational and non relational databases. Create operation creates a new record Read operation reads table records based on conditions given in...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/" />
+  <link rel="canonical" href="http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/venkat.jpg" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="CURD and other SQL basics" />
+  
+
+  
+  <meta name="twitter:description" content="CRUD: The acronym crud stands for create, read, update, and delete. It represents four basic operations that are performed on a database entries. These operations are applicable to both relational and non relational databases. Create operation creates a new record Read operation reads table records based on conditions given in...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/venkat.jpg" />
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Quantum Of Cosmos</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="http://quantumofcosmos.github.io">Home</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.markdowntutorial.com/">Learn markdown</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://pages.github.com/">GitHub Pages</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/venkat.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>CURD and other SQL basics</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on January 29, 2018</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h2 id="crud">CRUD:</h2>
+<p>The acronym crud stands for <strong>c</strong>reate, <strong>r</strong>ead, <strong>u</strong>pdate, and <strong>d</strong>elete. It represents four basic operations that are performed on a database entries. These operations are applicable to both relational and non relational databases.</p>
+
+<ul>
+  <li>Create operation creates a new record</li>
+  <li>Read operation reads table records based on conditions given in query or a primary key value.</li>
+  <li>Update operation updates the entry in a table based on primary key value specified in where clause.</li>
+  <li>Delete operation removes an entry based on a where clause</li>
+</ul>
+
+<hr />
+
+<h2 id="sql">SQL:</h2>
+<p>SQL is a programming language for relational databases. It comprises both Data definition language(DDL) and Data manipulation languages(DML). Using the data definition properties of SQL, one can design and modify database schema, whereas data manipulation properties allows SQL to store and retrieve data from database.
+SQL is a scripting language meaning the code can be executed without any need of compilation. It is a good practice to delimit each statement with a <code class="highlighter-rouge">;</code>.</p>
+
+<h3 id="constraints-in-an-sql-command">Constraints in an sql command:</h3>
+<p><strong>Not null:</strong>
+The value of this column in an sql entry cannot be a null value.</p>
+
+<p><strong>Unique:</strong>
+The entries in this column cannot be reused.</p>
+
+<p><strong>Primary Key:</strong>
+It is a combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table.The entries in this column are used to relate different rows when two or more tables are being joined together.</p>
+
+<p><strong>Default:</strong>
+Sets a default value for a column when no value is specified.</p>
+
+<h2 id="sql-commands">SQL Commands:</h2>
+
+<h3 id="create-table">Create Table:</h3>
+<p>Following is the syntax to create a table with columns of particular datatype.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>  CREATE TABLE table_name (
+  column1 datatype,
+  column2 datatype,
+  column3 datatype,
+  ....
+  columnn datatype,
+  primary key columnx
+  unique columny
+  );
+</code></pre>
+</div>
+
+<h3 id="drop-table">Drop Table:</h3>
+<p>Following is the syntax to create a table with columns of particular datatype.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>  DROP TABLE table_name;
+</code></pre>
+</div>
+
+<h3 id="alter-table">Alter Table:</h3>
+<p>Alter table can be used to change the schema of an already existing table, three kinds of alterations that are possible and their syntax are as follows</p>
+<ol>
+  <li>Add a column:
+    <div class="highlighter-rouge"><pre class="highlight"><code>ALTER TABLE table_name
+ADD column_name datatype;
+</code></pre>
+    </div>
+  </li>
+  <li>Drop a column:
+    <div class="highlighter-rouge"><pre class="highlight"><code>ALTER TABLE table_name
+DROP COLUMN column_name;
+</code></pre>
+    </div>
+  </li>
+  <li>Modify a column:
+    <div class="highlighter-rouge"><pre class="highlight"><code>ALTER TABLE table_name
+ALTER COLUMN column_name
+modification_type;
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h3 id="select-from-table">Select from table:</h3>
+<p>It is used to Select data from a table either all of it or after filtering it with a condition.</p>
+<ol>
+  <li>Select all:
+This statement gives out all rows and all columns.
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT * from table_name;
+</code></pre>
+    </div>
+  </li>
+  <li>Select columns:
+This statement gives out all rows of selected columns
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT column1, column2, ...
+FROM table_name;
+</code></pre>
+    </div>
+  </li>
+  <li>Select distinct:
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT column1, column2, ...
+FROM table_name;
+</code></pre>
+    </div>
+  </li>
+  <li>Select conditionally:
+This statement is used to select entries of table conditionally.
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT column1, column2, ...
+FROM table_name
+WHERE condition;
+</code></pre>
+    </div>
+    <p>This condition is usually written comparative in nature with one of the column.</p>
+  </li>
+  <li>Select with multiple conditions:
+This statement is used when there is a need to employ multiple conditions at once</li>
+</ol>
+
+<p>5.1. Using And:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+</code></pre>
+</div>
+<p>5.2. Using OR:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+</code></pre>
+</div>
+<p>5.3. Using NOT:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+</code></pre>
+</div>
+<ol>
+  <li>Select in an order:
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+</code></pre>
+    </div>
+  </li>
+  <li>Select top n rows:
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE condition;
+</code></pre>
+    </div>
+  </li>
+  <li>Select min and max in a column:
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+</code></pre>
+    </div>
+  </li>
+  <li>Count:
+It returns the number of rows that match the given criteria
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+</code></pre>
+    </div>
+  </li>
+  <li>Sum and average:
+It returns the sum/avg of rows that match the given criteria
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT SUM/AVG(column_name)
+FROM table_name
+WHERE condition;
+</code></pre>
+    </div>
+  </li>
+  <li>in condition:
+It can be used as multiple or condition
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+</code></pre>
+    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (SELECT STATEMENT);
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+      </article>
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=CURD+and+other+SQL+basics+http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+  <!--- Share on Google Plus -->
+    <a href="https://plus.google.com/share?url=http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/"
+      class="btn btn-social-icon btn-google" title="Share on Google+">
+      <span class="fa fa-fw fa-google-plus" aria-hidden="true"></span>
+      <span class="sr-only">Google+</span>
+    </a>
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2018-01-29-CRUD-and-other-SQL-Basics/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2018-01-26-DB-Basics/" data-toggle="tooltip" data-placement="top" title="DB Basics">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2018-02-14-SQL-Aliases-and-joins/" data-toggle="tooltip" data-placement="top" title="SQL Aliases and joins">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:quantumofcosmos@gmail.com.com" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://github.com/quantumofcosmos" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Venkat Yandapalli
+      &nbsp;&bull;&nbsp;
+      2018
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+  $(document).keypress(function(event) {
+    if(event.which==104){
+           window.location.href = "/";
+         }
+         if(event.which==97){
+                window.location.href = "/aboutme";
+              }
+})});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-113464058-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+  
+  </body>
+</html>

@@ -4,30 +4,21 @@ title: Music notes and some random musings
 subtitle: Musings are mine but music is understandably not.
 use-site-title: true
 ---
-
 <div class="posts-list">
-  <p>all posts</p>
-  {% for post in paginator.posts %}
-  <p>paginator post</p>
-  {% for tags in post.tags %}
-  <p>for post tag</p>
-  {% if tags contains "music" or "musings" %}
-<p>if tag</p>
+  {% assign everything = site.tags.music | concat: site.tags.musings %}
+  {% for post in everything %}
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
 	  <h2 class="post-title">{{ post.title }}</h2>
-
-	  {% if post.subtitle %}
+    {% if post.subtitle %}
 	  <h3 class="post-subtitle">
 	    {{ post.subtitle }}
 	  </h3>
 	  {% endif %}
     </a>
-
     <p class="post-meta">
       Posted on {{ post.date | date: "%B %-d, %Y" }}
     </p>
-
     <div class="post-entry-container">
       {% if post.image %}
       <div class="post-image">
@@ -44,7 +35,6 @@ use-site-title: true
         {% endif %}
       </div>
     </div>
-
     {% if post.tags.size > 0 %}
     <div class="blog-tags">
       Tags:
@@ -57,13 +47,9 @@ use-site-title: true
       {% endif %}
     </div>
     {% endif %}
-
    </article>
-   {% endif %}
-  {% endfor %}
   {% endfor %}
 </div>
-
 {% if paginator.total_pages > 1 %}
 <ul class="pager main-pager">
   {% if paginator.previous_page %}
@@ -78,3 +64,4 @@ use-site-title: true
   {% endif %}
 </ul>
 {% endif %}
+<!-- concat(site.tags.music, site.tags.musings) -->
