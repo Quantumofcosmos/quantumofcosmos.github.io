@@ -411,6 +411,20 @@
 
       
       </p>
+
+      <!-- To find if device is desktop or mobile -->
+
+      <div id="h4home" class="theme-by text-muted" style="display:none;">
+          Press <b>h</b> to go home and <b>a</b> for about me.
+      </div>
+      <script src="https://unpkg.com/current-device/umd/current-device.min.js"></script>
+      <script type="text/javascript">
+        var device = device.default;
+      if (device.desktop()){
+        document.getElementById("h4home").style.display = "";
+      }
+      </script>
+
           <!-- Please don't remove this, keep my open source work credited :) -->
     <p class="theme-by text-muted">
       Theme by
