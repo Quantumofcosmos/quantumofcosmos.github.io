@@ -1,16 +1,22 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Why you'd want to come to this blog more often..
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+What does Mechanical engineering, Hyderabad, Data science, Violin and this site's avatar have in common.?
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+Well not much except they can all be used to describe me.
+
+Some more things about me...
+
+- I am an ameture developer and Data science enthusiast from Hyderabad.
+- I'm extremely commited to any project I take-up.
+- I like to keep things clean. Both Data and my surroundings.
+- I rock a great mustache :D :man:
+
 
 What else do you need?
 
-### my history
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+<!-- TODO D3 about abiliies  -->
