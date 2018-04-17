@@ -13,6 +13,7 @@ Some more things about me...
 - I am an ameture developer and Data science enthusiast from Hyderabad.
 - I'm extremely commited to any project I take-up.
 - I like to keep things clean. Both Data and my surroundings.
+- I convert Documentation, Stackoverflow and Music into working applications in chennai for living.
 - I rock a great mustache  :man:
 
 
