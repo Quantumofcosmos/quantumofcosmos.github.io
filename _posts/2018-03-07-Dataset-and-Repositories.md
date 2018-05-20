@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dataset and descriptive statistics
+title: Dataset and Repositories
 ---
 
 Dataset is a collection of data where the data points are arranged homogeneously and in an easily accessible way. This ordered data will usually follow a set of rules called schema which will have information about the data-type of different columns.
@@ -23,11 +23,3 @@ Following are a few open-source dataset repositories:
 * [Amazon AWS public datasets](https://aws.amazon.com/public-datasets/)
 
 * [CMU repository](http://lib.stat.cmu.edu/datasets/)
-
-
-<iframe src="/notebooks/2018-03-07-Dataset-and-Descriptive-Statistics.html" onload="resizeIframe(this)" style="border:none;width:100%;"> </iframe>
-<script type="text/javascript">
-  function resizeIframe(iframe) {
-    iframe.height = iframe.contentWindow.document.body.scrollHeight+30 + "px";
-  }
-</script>  
