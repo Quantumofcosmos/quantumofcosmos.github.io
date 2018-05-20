@@ -2,7 +2,7 @@
 layout: post
 title: The Road ahead
 subtitle: Reason I started on this journey and where I intend to go
-bigimg: https://c1.staticflickr.com/5/4401/36870519016_3c61f08ae4_b.jpg
+bigimg: /img/path.jpg
 tags: [intro]
 ---
 
