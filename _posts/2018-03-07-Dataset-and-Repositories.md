@@ -6,7 +6,7 @@ title: Dataset and Repositories
 Dataset is a collection of data where the data points are arranged homogeneously and in an easily accessible way. This ordered data will usually follow a set of rules called schema which will have information about the data-type of different columns.
 Following are a few famous datasets:
 
-* [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) : Small data set illustrating the importance of graphing the data to avoid statistical fallacies (Hello world of Visualization basics Exploratory data analysis)
+* [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) : Small data set illustrating the importance of visualizing the data to avoid statistical fallacies (Hello world of Visualization basics Exploratory data analysis)
 
 * [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) :  Multivariate data set introduced by Ronald Fisher in 1936(Hello world of descriptive and predictive analysis).
 

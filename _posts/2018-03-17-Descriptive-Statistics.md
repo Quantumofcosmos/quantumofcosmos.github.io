@@ -2,6 +2,7 @@
 layout: post
 title: Descriptive Statistics
 ---
+
 In this post we will see about some statistical properties that describe data. These properties are collectively but not exhaustively called as Descriptive Statistics.
 
 ## Mean:
