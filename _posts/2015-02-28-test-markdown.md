@@ -72,3 +72,10 @@ You can add notification, warning and error boxes like this:
 
 {: .box-error}
 **Error:** This is an error box.
+
+<iframe src="/notebooks/Descriptive-Statistics.html" onload="resizeIframe(this)" style="border:none;width:100%;"> </iframe>
+<script type="text/javascript">
+  function resizeIframe(iframe) {
+    iframe.height = iframe.contentWindow.document.body.scrollHeight+30 + "px";
+  }
+</script>
