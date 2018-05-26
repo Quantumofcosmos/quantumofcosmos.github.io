@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to come to this blog more often..
+subtitle: Why you'd want to come to my blog more often..
 ---
 
 What does Mechanical engineering, Hyderabad, Data science, Violin and this site's avatar have in common.?
@@ -20,5 +20,12 @@ Some more things about me...
 
 What else do you need? :smiley: :relaxed:
 
+P.S. **What does Quantum-of-cosmos even mean?**
 
+According to Wiki:
+**Quantum** is the minimum amount of any physical entity involved in an interaction.
+
+**Cosmos** is the universe. Cosmos is used at times when the universe is regarded as a complex and orderly system or entity; the opposite of chaos.
+
+So quantum of cosmos makes me a small but significant entity in this universe.!
 <!-- TODO D3 about abiliies  -->

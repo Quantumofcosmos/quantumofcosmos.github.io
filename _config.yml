@@ -26,8 +26,6 @@ navbar-links:
   Home: "https://quantumofcosmos.github.io"
   More:
     - Music and Musings: "musicandmusings"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-    - GitHub Pages: "https://pages.github.com/"
   About Me: "aboutme"
 
 # Image to show in the navigation bar - image must be a square (width = height)

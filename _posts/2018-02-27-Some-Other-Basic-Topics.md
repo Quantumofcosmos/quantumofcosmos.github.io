@@ -8,7 +8,7 @@ In this post I am going to cover multiple relatively similar concepts in a singl
 * [Database shrading](#Database-shrading)
 * [OLAP](#OLAP)
 * [ETL](#ETL)
-* [XML & JSON](#JSONXML)
+* [XML and JSON](#JSONXML)
 * [RegEx](#RegEx)
 
 ### <a name="Database-shrading"></a>Database shrading:
@@ -41,7 +41,7 @@ The load phase loads the data into the end target, which may be a simple delimit
 
 ****
 
-### <a name="JSONXML"></a>XML & JSON:
+### <a name="JSONXML"></a>XML and JSON:
 When data sources produce data, They need to be transferred to datastore alog with the metadata information such as the variable name,etc. For this we majorly have two different formats of data transport.
 
 1. **XML:**
