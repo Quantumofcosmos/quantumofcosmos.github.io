@@ -107,6 +107,6 @@ $$\sigma^2=\frac{1}{n}\sum_{i=0}^n(X_i-\mu)^2$$
 
 Standard deviation is also a measure of dispersion in data and is calculated as square root of variance.
 
-<!-- We can see in the equation of variance that we are squaring the difference making the units squared of the base data units. This might distort the information. -->
+Generally, the more widely spread the values are, the larger the standard deviation is. For example, imagine that we have to separate two different sets of exam results from a class of 30 students the first exam has marks ranging from 31% to 98%, the other ranges from 82% to 93%. Given these ranges, the standard deviation would be larger for the results of the first exam.
 
-Standard deviation is more interpretable, just because it brings back the variability of the data to the same space where data lives (i.e. if your data is in meters, then variance will be square meters and you can't exactly compare them).
+Standard deviation is more interpretable compared to variance, because it brings back the variability of the data to the same space where data lives (i.e. if your data is in meters, then variance will be square meters and you can't exactly compare them).
