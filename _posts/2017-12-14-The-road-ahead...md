@@ -4,6 +4,7 @@ title: The Road ahead
 subtitle: Reason I started on this journey and where I intend to go
 bigimg: /img/path.jpg
 tags: [intro]
+published: false
 ---
 
 So, for a long time I wanted to offer the knowledge I have as a series of blog posts, which will also aid me in coming to a better terms with my concepts. But the problem was that I had no clue where to start.That is until now.
