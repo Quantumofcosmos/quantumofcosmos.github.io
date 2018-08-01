@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Basics of Python
-subtitle: A complete jittery beginner's guide   
+subtitle: A complete jittery beginner's guide to python   
 ---
 
 In this post we will see the basics of python language including installation, datatypes and other features of python.
