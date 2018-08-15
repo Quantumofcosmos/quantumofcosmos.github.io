@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>India Map</title>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <script type="text/javascript" src="d3-geo.min.js"></script>
+    <style type="text/css">
+
+      path {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .2px;
+  }
+path:hover {
+  fill: orange;
+}
+body {
+  text-align: center;
+}
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    height: 14px;
+    padding: 2px;
+    font: 120px sans-serif;
+    background: #fff;
+    border: 0px;
+    pointer-events: none;
+}
+
+table {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  width: 640px;
+  /* Table reset stuff */
+  border-collapse: collapse; border-spacing: 0;
+}
+
+td, th {  border: 0 none; height: 30px; }
+
+th {
+  /* Gradient Background */
+	background: linear-gradient(#333 0%,#444 100%);
+	color: #FFF; font-weight: bold;
+	height: 40px;
+}
+
+td { background: #FAFAFA; text-align: center; }
+
+/* Zebra Stripe Rows */
+
+tr:nth-child(even) td { background: #EEE; }
+tr:nth-child(odd) td { background: #FDFDFD; }
+
+/* First-child blank cells! */
+/* tr td:first-child, tr th:first-child {
+	background: none;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: right;
+	padding-right: 10px;
+	width: 80px;
+} */
+
+/* Add border-radius to specific cells! */
+tr:last-child td:first-child {
+  border-radius:0 0 0 5px;
+}
+tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+tr:first-child th:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+tr:first-child th:last-child {
+  border-radius: 0 5px 0 0;
+}
+    </style>
+  </head>
+
+<body>
+  <select id="selector" name="year" onChange="refrsh()" >
+  <option value="1975">1975</option>
+  <option value="1979">1979</option>
+  <option value="1983">1983</option>
+  <option value="1987">1987</option>
+  <option value="1992">1992</option>
+  <option value="1996">1996</option>
+  <option value="1999">1999</option>
+  <option value="2003">2003</option>
+  <option value="2007">2007</option>
+  <option value="2011" selected >2011</option>
+  <option value="2015">2015</option>
+</select>
+  <div id="chart"></div>
+  <div id="list"></div>
+  <script type="text/javascript">
+    var w = 600;
+    var h = 600;
+    var proj = d3.geo.mercator();
+    var path = d3.geo.path().projection(proj);
+    var t = proj.translate(); // the projection's default translation
+    var s = proj.scale() // the projection's default scale
+
+    var map = d3.select("#chart").append("svg:svg")
+        .attr("width", w)
+        .attr("height", h)
+//        .call(d3.behavior.zoom().on("zoom", redraw))
+        .call(initialize);
+
+    var india = map.append("svg:g")
+        .attr("id", "india");
+        // https://stackoverflow.com/questions/13615381/d3-add-text-to-circle
+        // http://www.competa.com/blog/d3-js-part-6-of-9-add-labels-to-the-map/
+        // https://www.toptal.com/javascript/a-map-to-perfection-using-d3-js-to-make-beautiful-web-maps
+
+function rebase(){
+                 d3.json("output.json", function (json) {
+                       india.selectAll("path")
+                            .data(json.features)
+                            .enter()
+                            .append("g")
+                            .attr("class","container")
+                            .attr("id", function(d) { return d.properties.NAME_1.replace(/\s/g,'');})
+                            .append("path")
+                            .attr("d", path)
+                            .attr("class","state")
+                            .attr("id", function(d) { return d.properties.NAME_1.replace(/\s/g,'');})
+                            .on("mouseover", function(d,i) {
+                                            d3.select(this)
+                                            .style("transform", "scale(1.02,1.02)")
+                                            .style("transform-origin", "50% 50%");
+                                                            })
+                            .on("mouseout", function(d,i) {
+                                            d3.select(this)
+                                            .style("transform", "scale(1,1)")
+                                            .style("transform-origin", "50% 50%");
+                                                            });
+                                });
+                d3.selectAll("table").remove();
+                d3.select("#list").append("table").append("thead").append("tr").selectAll("th")
+                 .data(["State", "Players"])
+                 .enter()
+                 .append("th")
+                 .text(function(d) { return d; });
+                d3.select("table").append("tbody").append("tr")
+                    };
+rebase();
+
+    function refrsh() {
+
+      d3.selectAll(".state").style("fill", "#ccc").style("stroke", "#fff");
+      d3.selectAll("title").remove()
+      // d3.selectAll("table").remove()
+      rebase();
+      // d3.select("#list").append("table")
+      d3.json("yearlysqd.txt", function(data) {
+        d3.keys(data[document.getElementById('selector').value]).forEach(function(x) {
+             d3.select(".state#" + x.replace(/\s/g,'')).style("fill", "#85C3C0").style("stroke", "#222")
+             d3.select("g.container#"+ x.replace(/\s/g,'')).insert('svg:title', 'path')
+               // .append("svg:title")
+               .text(function(d) { return data[document.getElementById('selector').value][x]; })
+
+             // d3.select("path.state#"+ x.replace(/\s/g,'')).append("text").attr("text-anchor", "middle")
+		         //   .attr('font-size', '1em')
+		         //   .attr('y', 20)
+	           //   .text("venkatesh");
+      // d3.select("#list").text("hi")
+      d3.select("tbody").append("tr").selectAll("td")
+       .data([x.replace(/\s/g,''), data[document.getElementById('selector').value][x]])
+       .enter()
+       .append("td")
+       .text(function(d) { return d; })
+   console.log(data[document.getElementById('selector').value][x]);
+   console.log("#"+x.replace(/\s/g,''));
+})
+d3.selectAll("g.container").append("svg:title").text(function(d) { return "None" });
+      });
+ //      d3.select("body").selectAll("path")
+ //    .data("yearlysqd.txt")
+ //  .enter().append("div")
+ //    .text(function(d) { return d; })
+ // .filter(function(d){ return d == 8; }).append("span")
+ //    .text("Equal to 8")
+  }
+
+    //   d3.json("yearlysqd.txt", function (json) {
+    //     india.selectAll("path")
+    //         .data(json.year)
+    //       .enter().append("path")
+    //         .attr("d", path).attr("id", function(d) { return d.properties.NAME_1; }).append("svg:title")
+    //         .text(function(d) { return d.properties.NAME_1; });
+    // }
+
+
+    // d3.json("yearlysqd.txt", function(data) {
+    //     console.log(data);
+    // });
+  //   d3.json("data.csv", function(error, data) {
+  // data.forEach(function(d) {
+  //     return d;
+  // });
+    // d3.json("output.json", function (json) {
+    //   india.selectAll("path")
+    //       .data(json.properties)
+    //     .enter().append("svg:title")
+    //     .text(function(d) { return "test"; });
+    //     //
+    //     // .append("path")
+    //     //   .attr("d", path)
+    // });
+
+// window.onload()=function(){refrsh();}
+// window.addEventListener('load', refrsh);
+setTimeout(refrsh, (200));
+
+    function initialize() {
+      proj.scale(6700);
+      proj.translate([-1240, 720]);
+    };
+
+
+
+/*
+   // This section should allow for zoom & pan.
+
+   function redraw() {
+      // d3.event.translate stores the current translation from the parent SVG element
+      // t stores the projection's default translation
+      // adding the x and y vales in each array to yields the projection's new translation
+      var tx = t[0] * d3.event.scale + d3.event.translate[0];
+      var ty = t[1] * d3.event.scale + d3.event.translate[1];
+      proj.translate([tx, ty]);
+
+      // determine the projection's new scale and redraw the map:
+      proj.scale(s * d3.event.scale);
+      india.selectAll("path").attr("d", path);
+    }
+
+
+     // This section should color each state.
+
+var states = svg.append("g")
+    .attr("id", "states")
+    .attr("class", "Blues");
+
+    // load the GDP data
+    d3.json("wealth.json", function(json) {
+      data = json;
+      states.selectAll("path")
+        .attr("class", quantize);
+    });
+
+    function quantize(d) {
+      return "q" + Math.min(8, ~~(data[d.id] * 9 / 12)) + "-9";
+    }
+*/
+  </script>
+
+</body>
+</html>
