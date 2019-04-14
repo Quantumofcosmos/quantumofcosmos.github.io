@@ -1,7 +1,6 @@
 ---
 layout: post
-title: The Road ahead
-subtitle: Reason I started on this journey and where I intend to go
+title: The Ransom note generator
 ---
 This post walks you through my Ransom note generator application written in python using pillow for image handling and flask for exposing it as webapp
 
