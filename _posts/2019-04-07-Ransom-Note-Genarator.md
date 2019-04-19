@@ -44,14 +44,14 @@ You will see the following screen on accessing the above URL. Give the text you 
 
 The image can be downloaded by right clicking on it. The dimentions of the image are that of an A4 sized paper.
 
-## Features Implemented
+## Features Implemented:
 * Randomized
   * Background color
   * Font size(Between 22 and 32)
   * Alphabet rotation
   * Font styles(currently selection between Comic, Comic Bold, FreeSans, Times New Roman, Trebuchet Bold, Vera MoBI and Verdana Italic, Can be extended to more fonts)
 
-## Features ToDo
+## Features ToDo:
 * Add a download image button(can be downloaded with right click menu as of now)
 * Extensible font styles
 * Play with alphabet case
@@ -61,7 +61,7 @@ The image can be downloaded by right clicking on it. The dimentions of the image
 * (May be) Live loading of image(Currently reloads after you submit)
 * (May be) randomize font color which is currently fixed to black.
 
-## [Code Repo](https://github.com/Quantumofcosmos/ransom_note_generator)
+You can find the Github Repo **[here](https://github.com/Quantumofcosmos/ransom_note_generator)**
 
 # Disclaimer:
 This project was undertaken to improve my understanding of python and it should not be misused in anyway.
