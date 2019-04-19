@@ -42,7 +42,7 @@ You will see the following screen on accessing the above URL. Give the text you 
 
 ![GUI of application](/img/ransom.gif)
 
-The image can be downloaded by right clicking on it. The dimentions of the image are that of an A4 sized paper.
+The image can be downloaded by right clicking on it. The dimensions of the image are that of an A4 sized paper.
 
 ## Features Implemented:
 * Randomized
