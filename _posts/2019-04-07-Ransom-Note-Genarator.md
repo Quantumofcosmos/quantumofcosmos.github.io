@@ -8,6 +8,7 @@ This post walks you through my Ransom note generator application written in pyth
 In typography, the **ransom note effect** is the result of using an excessive number of juxtaposed typefaces, with the message formed from words or letters cut randomly from a magazine or newspaper in order to avoid using recognizable handwriting.
 
 ![Example](https://16sparrows.typepad.com/.a/6a00d834515a1f69e2017d424ea9a3970c-800wi)
+
 ****
 
 # Behind the screen:
