@@ -8,6 +8,7 @@ This post walks you through my Ransom note generator application written in pyth
 In typography, the **ransom note effect** is the result of using an excessive number of juxtaposed typefaces, with the message formed from words or letters cut randomly from a magazine or newspaper in order to avoid using recognizable handwriting.
 
 ![Example](https://16sparrows.typepad.com/.a/6a00d834515a1f69e2017d424ea9a3970c-800wi)
+
 ****
 
 # Behind the screen:
@@ -41,16 +42,16 @@ You will see the following screen on accessing the above URL. Give the text you 
 
 ![GUI of application](/img/ransom.gif)
 
-The image can be downloaded by right clicking on it. The dimentions of the image are that of an A4 sized paper.
+The image can be downloaded by right clicking on it. The dimensions of the image are that of an A4 sized paper.
 
-## Features Implemented
+## Features Implemented:
 * Randomized
   * Background color
   * Font size(Between 22 and 32)
   * Alphabet rotation
   * Font styles(currently selection between Comic, Comic Bold, FreeSans, Times New Roman, Trebuchet Bold, Vera MoBI and Verdana Italic, Can be extended to more fonts)
 
-## Features ToDo
+## Features ToDo:
 * Add a download image button(can be downloaded with right click menu as of now)
 * Extensible font styles
 * Play with alphabet case
@@ -60,4 +61,11 @@ The image can be downloaded by right clicking on it. The dimentions of the image
 * (May be) Live loading of image(Currently reloads after you submit)
 * (May be) randomize font color which is currently fixed to black.
 
+<<<<<<< HEAD
 You can find the github repo [here](https://github.com/Quantumofcosmos/ransom_note_generator)
+=======
+You can find the Github Repo **[here](https://github.com/Quantumofcosmos/ransom_note_generator)**
+
+# Disclaimer:
+This project was undertaken to improve my understanding of python and it should not be misused in anyway.
+>>>>>>> 144d73858149972d33d77acd349fc4fc0516d81f
