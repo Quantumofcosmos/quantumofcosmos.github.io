@@ -59,3 +59,5 @@ The image can be downloaded by right clicking on it. The dimentions of the image
 * (May be) Non stranded shaped for alphabet background
 * (May be) Live loading of image(Currently reloads after you submit)
 * (May be) randomize font color which is currently fixed to black.
+
+You can find the github repo [here](https://github.com/Quantumofcosmos/ransom_note_generator)
