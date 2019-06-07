@@ -161,7 +161,7 @@ rebase();
       // d3.select("#list").append("table")
       d3.json("yearlysqd.txt", function(data) {
         d3.keys(data[document.getElementById('selector').value]).forEach(function(x) {
-             d3.select(".state#" + x.replace(/\s/g,'')).style("fill", "#85C3C0").style("stroke", "#222")
+             d3.select(".state#" + x.replace(/\s/g,'')).style("fill", "#1B4CA9").style("stroke", "#2E9DE5")
              d3.select("g.container#"+ x.replace(/\s/g,'')).insert('svg:title', 'path')
                // .append("svg:title")
                .text(function(d) { return data[document.getElementById('selector').value][x]; })

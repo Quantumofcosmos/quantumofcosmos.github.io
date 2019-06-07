@@ -10,9 +10,9 @@ So that is what I am going to attempt to do in this project.
 
 **ACT 1:**
 
-Modern days digital images are usually stored as a series of pixels which are filled with colors in combination of Red, Blue and Green. This arrangement when looked at from a distance is interpreted by our eyes and brain as an image.
+Modern day digital images are usually stored as a series of pixels which are filled with colors in combination of Red, Blue and Green. This arrangement, when looked at from a distance, is interpreted by our eyes and brain as an image.
 
-Take this flower for example
+Take this flower for example:
 
 ![Example](/img/flowers.jpg)
 ![](./)
