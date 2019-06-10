@@ -31,7 +31,7 @@ Since the case-in-point is representation from different states, visualization h
 
 ## Functionalities:
 
-1. Page when loaded for the first time show the 2011 worldcup squad. The squad that brought back the worldcup.
+1. Page when loaded for the first time show the 2019 worldcup squad currently representing India. 
 
 2. Year can be changed from drop-down above map. The map and the contents of the table update accordingly.
 
