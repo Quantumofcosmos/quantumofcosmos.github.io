@@ -61,11 +61,9 @@ The image can be downloaded by right clicking on it. The dimensions of the image
 * (May be) Live loading of image(Currently reloads after you submit)
 * (May be) randomize font color which is currently fixed to black.
 
-<<<<<<< HEAD
 You can find the github repo [here](https://github.com/Quantumofcosmos/ransom_note_generator)
 =======
 You can find the Github Repo **[here](https://github.com/Quantumofcosmos/ransom_note_generator)**
 
 # Disclaimer:
 This project was undertaken to improve my understanding of python and it should not be misused in anyway.
->>>>>>> 144d73858149972d33d77acd349fc4fc0516d81f
