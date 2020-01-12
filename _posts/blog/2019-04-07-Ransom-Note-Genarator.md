@@ -15,7 +15,7 @@ In typography, the **ransom note effect** is the result of using an excessive nu
 
 All of the projects that I saw which were trying to replicate it were handling it in javascript with which they were manipulating the font styles.
 
-I wanted to take a rather different approach to the same problem. Firstly I wanted to handle the process in python. Next I wanted the letter to be in image format that facilitates download option instead of HTML format which is the result of handling it in JS.
+I wanted to take a rather different approach to the same problem. To startwith, I wanted to handle the process in python. Next I wanted the letter to be in image format that facilitates download option instead of HTML format which is the result of handling it in JS.
 
 # Under the hood:
 

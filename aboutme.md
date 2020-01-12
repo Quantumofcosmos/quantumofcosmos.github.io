@@ -15,7 +15,7 @@ Some more things about me...
 - I like to keep things clean. Both Data and my surroundings.
 - I can say Hi in German and bit more than Hi in Telugu, Hindi, English, and Tamil.
 - I convert Documentation, Stack-overflow and Music into working applications in Hyderabad for living.
-- I rock a great mustache  :man:
+- I rock a great moustache  :man:
 
 
 What else do you need? :smiley: :relaxed:
