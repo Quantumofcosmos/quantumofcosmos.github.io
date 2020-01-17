@@ -4,7 +4,7 @@ title: SQL Aliases and joins
 ---
 
 ## Introduction:
-We have already seen basic SQL queries in the [previous post](https://quantumofcosmos.github.io/CRUD-and-other-SQL-Basics/). In this post we will see a bit more advanced queries that will involve multiple tables by using aliases and joins.
+We have already seen basic SQL queries in the [previous post](https://quantumofcosmos.netlify.com/CRUD-and-other-SQL-Basics/). In this post we will see a bit more advanced queries that will involve multiple tables by using aliases and joins.
 
 ### Alias:
 Aliases are used to give a table, or a column in a table, a temporary name. It only exists for the duration of the quiery.

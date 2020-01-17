@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://quantumofcosmos.github.io"
+url: "https://quantumofcosmos.netlify.com"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -23,7 +23,7 @@ description: Testimony of my ventures and musings
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "https://quantumofcosmos.github.io"
+  Home: "https://quantumofcosmos.netlify.com"
   More:
     - This week I learned: "twil"
     - Music and Musings: "musicandmusings"
