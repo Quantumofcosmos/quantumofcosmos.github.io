@@ -4,7 +4,7 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://quantumofcosmos.github.io"
+url: "https://quantumofcosmos.netlify.com"
 baseurl: ""
 
 # If you are building a GitHub project page then use these settings:
@@ -23,8 +23,9 @@ description: Testimony of my ventures and musings
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "https://quantumofcosmos.github.io"
+  Home: "https://quantumofcosmos.netlify.com"
   More:
+    - This week I learned: "twil"
     - Music and Musings: "musicandmusings"
   About Me: "aboutme"
 
@@ -138,7 +139,7 @@ timezone: "Asia/Calcutta"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
+# paginate: 5
 
 kramdown:
   input: GFM
@@ -228,8 +229,18 @@ prose:
 
 plugins:
   - jekyll-paginate
+  - jekyll-paginate-multiple
   - jekyll-sitemap
   - jemoji
+
+
+paginate_multiple:
+  - paginate: 5
+    paginate_path: '/page:num/'
+    sub_dir: '/blog'
+  - paginate: 5
+    paginate_path: '/twil/page:num/'
+    sub_dir: '/twil'
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189

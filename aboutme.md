@@ -14,8 +14,8 @@ Some more things about me...
 - I'm extremely committed to any project I take-up.
 - I like to keep things clean. Both Data and my surroundings.
 - I can say Hi in German and bit more than Hi in Telugu, Hindi, English, and Tamil.
-- I convert Documentation, Stack-overflow and Music into working applications in Chennai for living.
-- I rock a great mustache  :man:
+- I convert Documentation, Stack-overflow and Music into working applications in Hyderabad for living.
+- I rock a great moustache  :man:
 
 
 What else do you need? :smiley: :relaxed:

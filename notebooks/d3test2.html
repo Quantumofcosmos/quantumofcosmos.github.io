@@ -93,8 +93,9 @@ tr:first-child th:last-child {
   <option value="1999">1999</option>
   <option value="2003">2003</option>
   <option value="2007">2007</option>
-  <option value="2011" selected >2011</option>
+  <option value="2011">2011</option>
   <option value="2015">2015</option>
+  <option value="2019" selected >2019</option>
 </select>
   <div id="chart"></div>
   <div id="list"></div>
@@ -160,7 +161,7 @@ rebase();
       // d3.select("#list").append("table")
       d3.json("yearlysqd.txt", function(data) {
         d3.keys(data[document.getElementById('selector').value]).forEach(function(x) {
-             d3.select(".state#" + x.replace(/\s/g,'')).style("fill", "#85C3C0").style("stroke", "#222")
+             d3.select(".state#" + x.replace(/\s/g,'')).style("fill", "#1B4CA9").style("stroke", "#2E9DE5")
              d3.select("g.container#"+ x.replace(/\s/g,'')).insert('svg:title', 'path')
                // .append("svg:title")
                .text(function(d) { return data[document.getElementById('selector').value][x]; })
