@@ -1,7 +1,1 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-/_site
-.Rhistory
-.ipynb_checkpoints
+.DS_Store
