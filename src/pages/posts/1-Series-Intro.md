@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Diving into GNU Core Utils"
-pubDate: 2022-07-01
+pubDate: 2025-10-27
 description: "Motivation behind the core utils blog series."
 author: "Venkat Yandapalli"
 tags: ["GNU", "CoreUtils", "learning in public"]
