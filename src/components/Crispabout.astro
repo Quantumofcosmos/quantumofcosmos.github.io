@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+const pageTitle = "About Me";
+const detailedAbout = true;
+---
+
+<!-- style for class is-size-6 with bottom padding with 5px  -->
+
+<style>
+  .is-size-6 {
+    padding-bottom: 5px;
+  }
+</style>
+
+<html lang="en">
+  <BaseLayout pageTitle={pageTitle}>
+    <div class="content is-size-6">
+      <p>
+        What does Mechanical engineering, Hyderabad, Data science, experiments and
+        this site's author have in common.?
+      </p>
+      <p>Well, not much, except they all can be used to describe me.</p>
+      <slot />
+      <p>
+        P.S. <strong>What does Quantum-of-cosmos even mean?</strong>
+      </p>
+      <p>
+        According to Wiki:
+        <ul>
+          <li>
+            <strong>Quantum</strong> is the minimum amount of any physical entity
+            involved in an interaction.
+          </li>
+          <li>
+            <strong>Cosmos</strong> is the universe. Cosmos is used at times when
+            the universe is regarded as a complex and orderly system or entity; the
+            opposite of chaos.
+          </li>
+        </ul>
+
+        So quantum of cosmos makes me a small but significant entity in this
+        universe.!
+      </p>
+      <p> I am currently exploring the internals of GNU-Coreutils. You can follow my journey below.</p>
+    </div>
+  </BaseLayout>
+</html>
