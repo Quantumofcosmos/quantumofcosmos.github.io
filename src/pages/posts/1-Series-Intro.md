@@ -19,13 +19,13 @@ Coreutils is a collection of numerous programs grouped broadly into three catego
 
 3. **Shell utilities** — handle shell and user-level operations (`date`,`who`,`id`,`uname`, etc.)
 
-Collectively they form backbone of majority of linux operations
+Collectively, they form the backbone of majority of the Linux operations
 
 ## What sparked this series
 
-Starting version 25.10 (Noble Numbat), Ubuntu is aggressively pusing rust based reimplemetation of coreutils. While there has been a considerable backlash against the departure from `C` based, battle tested utils and numerous bugs being reported it made me realize how solid the implementation of the original coreutils was and how I work with these tools regularly but have any idea of its internals.
+Starting version 25.10 (Noble Numbat), Ubuntu is aggressively pushing Rust-based reimplemetation of coreutils. While there has been a considerable backlash against the departure from `C` based, battle-tested utils and numerous bugs being reported, it made me realize how solid the implementation of the original coreutils was and how I work with these tools regularly, but have no idea of their internals.
 
 
 ## What's next
 
-With this series I aim to go through each util and document its working staring with file utilities.
+With this series, I aim to go through each util and document its working, starting with file utilities.
