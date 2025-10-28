@@ -1,14 +1,122 @@
 ---
 ---
-<div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <span class="has-text-weight-bold is-size-4 has-text-weight-bold has-text-black is-family-secondary">Quantum of Cosmos</span>
-          </a>
-        </div>
-        <div class="navbar-end">
-          <a class="navbar-item" href="/">Home</a>
-          <a class="navbar-item" href="/about">About</a>
-          <a class="navbar-item" href="/blog">Blog</a>
-        </div>
-      </div>
+<style>
+  .navbar-end {
+    display: flex;
+    gap: 1rem;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    justify-content: space-between;
+  }
+  .hamburger .line {
+    display: block;
+    height: 4px;
+    background: #222;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  @media (max-width: 768px) {
+    .container {
+      display: flex !important;
+    }
+    .navbar-end {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+    .navbar-end.open {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
+      margin-top: 4%;
+      margin-right: 6%;
+    }
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: nowrap;
+    min-width: 0;
+    width: 100%;
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .hamburger {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  .navbar-end {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+</style>
+<div class="container" >
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <span class="has-text-weight-bold is-size-4 has-text-weight-bold has-text-black is-family-secondary">Quantum of Cosmos</span>
+    </a>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Toggle navigation" tabindex="0">
+    <span class="line" id="bar1"></span>
+    <span class="line" id="bar2"></span>
+    <span class="line" id="bar3"></span>
+  </div>
+  <div class="navbar-end" id="navbarEnd">
+    <a class="navbar-item" href="/">Home</a>
+    <a class="navbar-item" href="/about">About</a>
+    <a class="navbar-item" href="/blog">Blog</a>
+  </div>
+</div>
+
+<!-- Place script at the very end to ensure all DOM is rendered -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.hamburger = document.getElementById('hamburger');
+    window.navbarEnd = document.getElementById('navbarEnd');
+    window.bar1 = document.getElementById('bar1');
+    window.bar2 = document.getElementById('bar2');
+    window.bar3 = document.getElementById('bar3');
+    window.menuOpen = false;
+    window.updateMenu = function() {
+      if (window.menuOpen) {
+        window.navbarEnd.classList.add('open');
+        window.bar1.style.transform = 'rotate(45deg) translateY(-30%) translateX(45%)';
+        window.bar2.style.opacity = '0';
+        window.bar3.style.transform = 'rotate(-45deg) translateY(-30%) translateX(45%)';
+      } else {
+        window.navbarEnd.classList.remove('open');
+        window.bar1.style.transform = '';
+        window.bar2.style.opacity = '1';
+        window.bar3.style.transform = '';
+      }
+    }
+    window.hamburger.addEventListener('click', function() {
+      window.menuOpen = !window.menuOpen;
+      window.updateMenu();
+    });
+    window.hamburger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        window.menuOpen = !window.menuOpen;
+        window.updateMenu();
+      }
+    });
+  });
+</script>
