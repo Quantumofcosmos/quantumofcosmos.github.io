@@ -1,12 +1,79 @@
 ---
-import Crispabout from '../components/Crispabout.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import About from './about.astro';  
-import Blog from './blog.astro';
-const detailedAbout = false;
+import BlogPost from '../components/BlogPost.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+const pageTitle = "About Me";
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true })
+);
+const sortedPosts = allPosts
+  .filter((post) => !post.frontmatter.draft)
+  .sort((a, b) => {
+    const dateA = a.frontmatter.pubDate
+      ? new Date(a.frontmatter.pubDate)
+      : new Date(0);
+    const dateB = b.frontmatter.pubDate
+      ? new Date(b.frontmatter.pubDate)
+      : new Date(0);
+    return dateB - dateA;
+  });
+console.log("Total posts:", sortedPosts.length);
 ---
-<Crispabout />
-<Blog />
-<!-- <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-</BaseLayout> -->
+<style>
+  .is-size-6 {
+    padding-bottom: 5px;
+  }
+  @media (max-width: 768px) {
+    .content {
+      max-width: 95%;
+      margin: auto;
+    }
+    }  
+
+  
+</style>
+
+<html lang="en">
+  <BaseLayout pageTitle={pageTitle}>
+    <div class="content is-size-6">
+      <p>
+        What does Mechanical engineering, Hyderabad, Data science, experiments and
+        this site's author have in common.?
+      </p>
+      <p>Well, not much, except they all can be used to describe me.</p>
+      <slot />
+      <p>
+        P.S. <strong>What does Quantum-of-cosmos even mean?</strong>
+      </p>
+      <p>
+        According to Wiki:
+        <ul>
+          <li>
+            <strong>Quantum</strong> is the minimum amount of any physical entity
+            involved in an interaction.
+          </li>
+          <li>
+            <strong>Cosmos</strong> is the universe. Cosmos is used at times when
+            the universe is regarded as a complex and orderly system or entity; the
+            opposite of chaos.
+          </li>
+        </ul>
+
+        So quantum of cosmos makes me a small but significant entity in this
+        universe.!
+      </p>
+      <p> I am currently exploring the internals of GNU-Coreutils. You can follow my journey below.</p>
+    </div>
+    
+    <div class="content container">   
+        <h2>My most recent blogs.</h2>
+        <ul>
+            {
+                sortedPosts.map((post) => (
+                    <BlogPost url={post.url} title={post.frontmatter.title} />
+                ))
+            }
+    </ul>
+</div>
+</BaseLayout>
+</html>
