@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+const allPosts = Object.values(
+  import.meta.glob("./TWIL/*.md", { eager: true })
+);
+const sortedPosts = allPosts
+  .filter((post) => !post.frontmatter.draft)
+  .sort((a, b) => {
+    const dateA = a.frontmatter.pubDate
+      ? new Date(a.frontmatter.pubDate)
+      : new Date(0);
+    const dateB = b.frontmatter.pubDate
+      ? new Date(b.frontmatter.pubDate)
+      : new Date(0);
+    return dateB - dateA;
+  });
+
+// 3. DEBUG (add this for quick verification)
+// console.log(
+//   "First post date:",
+//   new Date(sortedPosts[0].frontmatter.pubDate).toDateString()
+// );
+console.log("Total posts:", sortedPosts.length);
+const pageTitle = "";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>My weekly discoveries in reverse cronological order.</p>
+  <div class="content is-small">
+    <ul>
+      {
+        sortedPosts.map((post) => (
+          <BlogPost url={post.url} title={post.frontmatter.title} />
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
