@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(168, 116, 36, 0.3) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(168, 116, 36, 0.3);
+    border-radius: 3px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-void-950 text-starlight font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent-500/30 text-starlight;
+  }
+}
+
+@layer components {
+  .cosmic-gradient {
+    background: linear-gradient(
+      135deg,
+      #0d0d11 0%,
+      #1a1a2e 25%,
+      #16213e 50%,
+      #1a1a2e 75%,
+      #0d0d11 100%
+    );
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #c4912f, #f0b127, #d4a854);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #c4912f, #f0b127, #d4a854);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_8px_30px_rgba(168,116,36,0.15)];
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-header {
+    @apply pt-32 pb-16 text-center;
+  }
+
+  .tag-pill {
+    @apply inline-block px-3 py-1 text-xs font-mono font-medium rounded-full bg-void-800 text-accent-300 border border-void-700;
+  }
+}
+
+@layer utilities {
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
